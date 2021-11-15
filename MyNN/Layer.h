@@ -12,6 +12,7 @@ public:
 	Matrix *getValues();
 	Matrix *getActivatedValues();
 	Matrix *getDerivedValues();
+	vector<Neuron*> getNeurons() { return this->neurons; };
 
 	
 private:

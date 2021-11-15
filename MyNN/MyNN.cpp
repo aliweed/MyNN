@@ -55,9 +55,22 @@ int main()
     topologyA.push_back(1);
     cout << "_____________________" << endl;
     NeuralNetwork* nn = new NeuralNetwork(topologyA);
-    nn->setCurrentInput(input2);
-    nn->feedForward();
-    nn->print();
+    nn2->setCurrentInput(input2);
+    
+    nn2->setCurrentTarget(input2);
+    
+    
+    //training process
+    for (int i = 0; i < 2000; i++) {
+
+        cout << "Epoch: " << i << endl;
+        nn2->feedForward();
+        nn2->setErrors();
+        //nn2->print();
+        cout << "Total Error: " << nn2->getTotalError() << endl;
+        nn2->backPropagate();
+    }
+
     return 0;
 
 }
